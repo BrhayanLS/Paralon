@@ -42,8 +42,6 @@ public class Departamento implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "nombre_departamento")
     private String nombreDepartamento;
-    @OneToMany(mappedBy = "idDepartamentoUbicacion", fetch = FetchType.LAZY)
-    private List<Ubicacion> ubicacionList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idDepartamentoMunicipio", fetch = FetchType.LAZY)
     private List<Municipio> municipioList;
 
@@ -73,14 +71,6 @@ public class Departamento implements Serializable {
 
     public void setNombreDepartamento(String nombreDepartamento) {
         this.nombreDepartamento = nombreDepartamento;
-    }
-
-    public List<Ubicacion> getUbicacionList() {
-        return ubicacionList;
-    }
-
-    public void setUbicacionList(List<Ubicacion> ubicacionList) {
-        this.ubicacionList = ubicacionList;
     }
 
     public List<Municipio> getMunicipioList() {

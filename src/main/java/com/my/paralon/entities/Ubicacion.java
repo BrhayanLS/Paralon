@@ -14,8 +14,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -32,6 +30,8 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Ubicacion.findAll", query = "SELECT u FROM Ubicacion u"),
     @NamedQuery(name = "Ubicacion.findByIdUbicacion", query = "SELECT u FROM Ubicacion u WHERE u.idUbicacion = :idUbicacion"),
+    @NamedQuery(name = "Ubicacion.findByIdDepartamentoUbicacion", query = "SELECT u FROM Ubicacion u WHERE u.idDepartamentoUbicacion = :idDepartamentoUbicacion"),
+    @NamedQuery(name = "Ubicacion.findByIdMunicipioUbicacion", query = "SELECT u FROM Ubicacion u WHERE u.idMunicipioUbicacion = :idMunicipioUbicacion"),
     @NamedQuery(name = "Ubicacion.findByDireccion", query = "SELECT u FROM Ubicacion u WHERE u.direccion = :direccion")})
 public class Ubicacion implements Serializable {
 
@@ -43,15 +43,19 @@ public class Ubicacion implements Serializable {
     private Integer idUbicacion;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "id_departamento_ubicacion")
+    private String idDepartamentoUbicacion;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 30)
+    @Column(name = "id_municipio_ubicacion")
+    private String idMunicipioUbicacion;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "direccion")
     private String direccion;
-    @JoinColumn(name = "id_departamento_ubicacion", referencedColumnName = "id_departamento")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Departamento idDepartamentoUbicacion;
-    @JoinColumn(name = "id_municipio_ubicacion", referencedColumnName = "id_municipio")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Municipio idMunicipioUbicacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUbicacionProv", fetch = FetchType.LAZY)
     private List<DatosClienteProveedor> datosClienteProveedorList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUbicacionPers", fetch = FetchType.LAZY)
@@ -64,8 +68,10 @@ public class Ubicacion implements Serializable {
         this.idUbicacion = idUbicacion;
     }
 
-    public Ubicacion(Integer idUbicacion, String direccion) {
+    public Ubicacion(Integer idUbicacion, String idDepartamentoUbicacion, String idMunicipioUbicacion, String direccion) {
         this.idUbicacion = idUbicacion;
+        this.idDepartamentoUbicacion = idDepartamentoUbicacion;
+        this.idMunicipioUbicacion = idMunicipioUbicacion;
         this.direccion = direccion;
     }
 
@@ -77,28 +83,28 @@ public class Ubicacion implements Serializable {
         this.idUbicacion = idUbicacion;
     }
 
+    public String getIdDepartamentoUbicacion() {
+        return idDepartamentoUbicacion;
+    }
+
+    public void setIdDepartamentoUbicacion(String idDepartamentoUbicacion) {
+        this.idDepartamentoUbicacion = idDepartamentoUbicacion;
+    }
+
+    public String getIdMunicipioUbicacion() {
+        return idMunicipioUbicacion;
+    }
+
+    public void setIdMunicipioUbicacion(String idMunicipioUbicacion) {
+        this.idMunicipioUbicacion = idMunicipioUbicacion;
+    }
+
     public String getDireccion() {
         return direccion;
     }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public Departamento getIdDepartamentoUbicacion() {
-        return idDepartamentoUbicacion;
-    }
-
-    public void setIdDepartamentoUbicacion(Departamento idDepartamentoUbicacion) {
-        this.idDepartamentoUbicacion = idDepartamentoUbicacion;
-    }
-
-    public Municipio getIdMunicipioUbicacion() {
-        return idMunicipioUbicacion;
-    }
-
-    public void setIdMunicipioUbicacion(Municipio idMunicipioUbicacion) {
-        this.idMunicipioUbicacion = idMunicipioUbicacion;
     }
 
     public List<DatosClienteProveedor> getDatosClienteProveedorList() {

@@ -5,7 +5,6 @@
 package com.my.paralon.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -43,8 +41,6 @@ public class Municipio implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "nombre_municipio")
     private String nombreMunicipio;
-    @OneToMany(mappedBy = "idMunicipioUbicacion", fetch = FetchType.LAZY)
-    private List<Ubicacion> ubicacionList;
     @JoinColumn(name = "id_departamento_municipio", referencedColumnName = "id_departamento")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Departamento idDepartamentoMunicipio;
@@ -75,14 +71,6 @@ public class Municipio implements Serializable {
 
     public void setNombreMunicipio(String nombreMunicipio) {
         this.nombreMunicipio = nombreMunicipio;
-    }
-
-    public List<Ubicacion> getUbicacionList() {
-        return ubicacionList;
-    }
-
-    public void setUbicacionList(List<Ubicacion> ubicacionList) {
-        this.ubicacionList = ubicacionList;
     }
 
     public Departamento getIdDepartamentoMunicipio() {

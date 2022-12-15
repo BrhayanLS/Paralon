@@ -65,13 +65,13 @@
                         <h:link outcome="productos.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
                             <i class="fa-solid fa-boxes-stacked me-3"></i><span>Productos</span>
                         </h:link>
-                        <h:link outcome="historialPedidos.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
+                        <h:link outcome="HistorialPedido.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
                             <i class="fa-solid fa-clipboard-list me-3"></i><span>Historial Pedidos</span>
                         </h:link>
-                        <h:link outcome="historialProduccion.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
+                        <h:link outcome="HistorialProduccion.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
                             <i  class="fas fa-chart-bar fa-fw me-3"></i><span>Historial Produccion</span>
                         </h:link>
-                        <h:link outcome="historialClientes.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
+                        <h:link outcome="HistorialClientes.xhtml" class="list-group-item list-group-item-action py-1 ripple mt-1">
                             <i  class="fas fa-chart-bar fa-fw me-3"></i><span>Historial Clientes</span>
                         </h:link>
                         <div class="d-grid text-black mt-4" id="b"  >       
@@ -105,7 +105,6 @@
         <main class="mt-5">
             <div class="container">
                 <div class="row justify-content-center ">
-
                     <div class="col-md-12">
                         <div class="card card-body">
                             <h3 class="card-titile text-primary" style="text-align:center">
@@ -123,67 +122,67 @@
                         <div class="card card-body">
                             <h:form  class=" row g-4 mt-3">
                                 <div class="col-md-4">
-                                    <div class="form-label">
                                         <label>Razon social</label>
-                                        <h:inputText class="form-control" value="#{controllerRegistroCliente.datosProveedor.razonSocial}" html:placeholder="Razon Social"></h:inputText>
+                                    <div class="form-label">
+                                        <h:inputText value="#{controllerRegistroCliente.datosCliente.razonSocial}" class="form-control" html:placeholder="Razon Social"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Tipo Cliente</label>
-                                    <h:selectOneMenu  class="form-control" value="#{controllerRegistroCliente.datosProveedor.tipoCliente}" a:placeholder="Tipo Cliente">
+                                        <h:selectOneMenu value="#{controllerRegistroCliente.datosCliente.tipoCliente}" class="form-control" a:placeholder="Tipo Cliente">
                                         <f:selectItems  var="t" itemValue="#{t}" itemLabel="#{t}" value="#{controllerRegistroCliente.tipoclientes}"></f:selectItems>
                                     </h:selectOneMenu>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="form-label">
                                         <label>DNI / NIT</label>
-                                        <h:inputText class="form-control" value="#{controllerRegistroCliente.datosProveedor.DNINITclienteproveedor}" html:placeholder="DNI / NIT"></h:inputText>
+                                    <div class="form-label">
+                                        <h:inputText value="#{controllerRegistroCliente.datosCliente.DNINITclienteproveedor}" class="form-control" html:placeholder="DNI / NIT"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Rol</label>
-                                    <h:selectOneMenu  class="form-control" value="#{controllerRegistroCliente.datosProveedor.rolClienteProveedor}" a:placeholder="Rol">
+                                        <h:selectOneMenu value="#{controllerRegistroCliente.datosCliente.rolClienteProveedor}" class="form-control" a:placeholder="Rol">
                                         <f:selectItems  var="t" itemValue="#{t}" itemLabel="#{t}" value="#{controllerRegistroCliente.roles}"></f:selectItems>
                                     </h:selectOneMenu>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Contacto 1</label>
                                     <div class="form-label">
-                                        <h:inputText class="form-control" value="#{controllerRegistroCliente.datosProveedor.contacto1}" html:placeholder="Contacto 1"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroCliente.datosCliente.contacto1}" class="form-control" html:placeholder="Contacto 1"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Contacto 2</label>
                                     <div class="form-label">
-                                        <h:inputText class="form-control" value="#{controllerRegistroCliente.datosProveedor.contacto2}" html:placeholder="Contacto 2"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroCliente.datosCliente.contacto2}" class="form-control" html:placeholder="Contacto 2"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Correo</label>
                                     <div class="form-label">
-                                        <h:inputText class="form-control" value="#{controllerRegistroCliente.datosProveedor.correo}" html:placeholder="Correo"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroCliente.datosCliente.correo}" class="form-control" html:placeholder="Correo"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Departamento</label>
                                     <div class="form-label">
-                                        <h:inputText class="form-control" html:placeholder="Departamento"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroCliente.ubicacion.idDepartamentoUbicacion}" class="form-control" html:placeholder="Departamento"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Municipio</label>
                                     <div class="form-label">
-                                        <h:inputText class="form-control" html:placeholder="Municipio"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroCliente.ubicacion.idMunicipioUbicacion}" class="form-control" html:placeholder="Municipio"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                         <label>Direccion</label>
                                     <div class="form-label">
-                                        <h:inputText class="form-control" value="#{controllerRegistroCliente.ubicacion.direccion}" html:placeholder="Direccion"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroCliente.ubicacion.direccion}" class="form-control" html:placeholder="Direccion"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3 d-flex justify-content-center">
-                                    <h:commandButton class="btn btn-outline-primary" actionListener="#{controllerRegistroCliente.saveDatosProveedor()}" value="REGISTRAR"></h:commandButton>
+                                    <h:commandButton class="btn btn-outline-primary" actionListener="#{controllerRegistroCliente.guardarCliente()}" value="REGISTRAR"></h:commandButton>
                                 </div>
                             </h:form> 
                         </div>

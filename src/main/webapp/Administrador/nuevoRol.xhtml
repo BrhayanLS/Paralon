@@ -105,44 +105,38 @@
                                 ROLES
                             </h3>
                             <h:form  class=" row g-4 mt-3">
-                                <div class="col-md-1">
-                                    <label for="idrol">ID</label>
-                                    <div class="form-label">
-                                        <h:inputText id="idrol" class="form-control" html:placeholder="ID"></h:inputText>
-                                    </div>
-                                </div>
                                 <div class="col-md-4">
                                     <label for="cargo">Cargo</label>
                                     <div class="form-label">
-                                        <h:inputText id="cargo" class="form-control" html:placeholder="Cargo"></h:inputText>
+                                        <h:inputText value="#{controllerNuevoRol.rol.cargo}" id="cargo" class="form-control" html:placeholder="Cargo"></h:inputText>
                                     </div>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-8">
                                     <label for="descripcion">Descripcion</label>
                                     <div class="form-label">
-                                        <h:inputText id="descripcion" class="form-control" html:placeholder="Descripcion"></h:inputText>
+                                        <h:inputText value="#{controllerNuevoRol.rol.descripcion}" id="descripcion" class="form-control" html:placeholder="Descripcion"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3 d-flex justify-content-center">
-                                    <h:commandButton class="btn btn-outline-primary" value="GUARDAR"></h:commandButton>
+                                    <h:commandButton actionListener="#{controllerNuevoRol.guardarRol()}" class="btn btn-outline-primary" value="GUARDAR"></h:commandButton>
                                 </div>
                             </h:form>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="table-responsive">
-                            <h:dataTable class="table table-striped table-hover text-center" value="#{controllerRol.listaRoles()}" var="listRol">
+                            <h:dataTable class="table table-striped table-hover text-center" value="#{controllerNuevoRol.listaRoles()}" var="t">
                                 <h:column>
                                     <f:facet name="header">Id Cargo</f:facet>
-                                    <h:outputText/>
+                                    <h:outputText value="#{t.idCargoRol}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Cargo</f:facet>
-                                    <h:outputText/>
+                                    <h:outputText value="#{t.cargo}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Descripcion</f:facet>
-                                    <h:outputText/>
+                                    <h:outputText value="#{t.descripcion}"/>
                                 </h:column>
                                 <h:column>
                                     <f:facet name="header">Acciones</f:facet>

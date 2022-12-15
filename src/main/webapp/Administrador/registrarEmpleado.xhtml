@@ -72,7 +72,7 @@
                     <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation" >
                         <i class="fas fa-bars"></i>
                     </button>
-                     <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="#">
                         <img src="../images/unnamed.png" 
                              height="33"
                              alt="logop"
@@ -106,85 +106,85 @@
                             </h3>
                             <h:form class="row g-4 ">
                                 <div class="col-md-4">
+                                <label>DNI</label>
                                     <div class="form-label">
-                                        <label>DNI</label>
-                                        <h:inputText class="form-control" html:placeholder="DNI"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.dni}" class="form-control" html:placeholder="DNI"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Primer Nombre</label>
                                     <div class="form-label">
-                                        <label>Primer Nombre</label>
-                                        <h:inputText class="form-control" html:placeholder="Primer Nombre"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.primerNombre}" class="form-control" html:placeholder="Primer Nombre"></h:inputText>
                                     </div>
                                 </div> 
                                 <div class="col-md-4">
+                                    <label>Segundo Nombre</label>
                                     <div class="form-label">
-                                        <label>Segundo Nombre</label>
-                                        <h:inputText class="form-control" html:placeholder="Segundo Nombre"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.segundoNombre}" class="form-control" html:placeholder="Segundo Nombre"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Primer Apellido</label>
                                     <div class="form-label">
-                                        <label>Primer Apellido</label>
-                                        <h:inputText class="form-control" html:placeholder="Primer Apellido"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.primerApellido}" class="form-control" html:placeholder="Primer Apellido"></h:inputText>
                                     </div>
                                 </div> 
                                 <div class="col-md-4">
+                                    <label>Segundo Apellido</label>
                                     <div class="form-label">
-                                        <label>Segundo Apellido</label>
-                                        <h:inputText class="form-control" html:placeholder="Segundo Apellido"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.segundoApellido}" class="form-control" html:placeholder="Segundo Apellido"></h:inputText>
                                     </div>
                                 </div> 
                                 <div class="col-md-4">
+                                    <label for="cargo">ID Cargo</label>
                                     <div class="form-label">
-                                        <label>ID Cargo</label>
-                                        <h:inputText class="form-control" html:placeholder="ID Cargo"></h:inputText>
+                                        <h:inputText converter="#{Integer}" value="#{controllerRegistroEmpleado.empleados.idCargoEmpleado}" class="form-control" id="cargo" html:placeholder="ID Cargo"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Contraseña</label>
                                     <div class="form-label">
-                                        <label>Contraseña</label>
-                                        <h:inputText class="form-control" html:placeholder="Contraseña"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.empleados.contraseña}" class="form-control" html:placeholder="Contraseña"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Correo</label>
                                     <div class="form-label">
-                                        <label>Correo</label>
-                                        <h:inputText class="form-control" html:placeholder="Correo"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.correo}" class="form-control" html:placeholder="Correo"></h:inputText>
                                     </div>
                                 </div> 
                                 <div class="col-md-4">
+                                    <label>Contacto 1</label>
                                     <div class="form-label">
-                                        <label>Contacto 1</label>
-                                        <h:inputText class="form-control" html:placeholder="Contacto 1"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.contacto1}" class="form-control" html:placeholder="Contacto 1"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Contacto 2</label>
                                     <div class="form-label">
-                                        <label>Contacto 2</label>
-                                        <h:inputText class="form-control" html:placeholder="Contacto 2"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.datosPersona.contacto2}" class="form-control" html:placeholder="Contacto 2"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Departamento</label>
                                     <div class="form-label">
-                                        <label>Departamento</label>
-                                        <h:inputText class="form-control" html:placeholder="Departamento"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.ubicacion.idDepartamentoUbicacion}" class="form-control" html:placeholder="Departamento"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Municipio</label>
                                     <div class="form-label">
-                                        <label>Municipio</label>
-                                        <h:inputText class="form-control" html:placeholder="Municipio"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.ubicacion.idMunicipioUbicacion}" class="form-control" html:placeholder="Municipio"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                    <label>Direccion</label>
                                     <div class="form-label">
-                                        <label>Direccion</label>
-                                        <h:inputText class="form-control" html:placeholder="Direccion"></h:inputText>
+                                        <h:inputText value="#{controllerRegistroEmpleado.ubicacion.direccion}" class="form-control" html:placeholder="Direccion"></h:inputText>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-3 d-flex justify-content-center">
-                                    <h:commandButton actionListener="#{controllerRegistroEmpleado.saveEmpleado()}" class="btn btn-outline-primary" value="REGISTRAR"></h:commandButton>
+                                    <h:commandButton  class="btn btn-outline-primary" value="REGISTRAR"></h:commandButton>
                                 </div>
                             </h:form> 
                         </div>
